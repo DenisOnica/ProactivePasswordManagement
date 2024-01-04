@@ -2,9 +2,6 @@ const mysql = require("../db");
 
 const handleDeleteMachine = (req, res) => {
   const machineID = req.params.MachineID;
-  if (!/^[1-9]\d*$/.test(machineID)) {
-    return res.status(400).json({ error: "Invalid MachineID format" });
-  }
 
   const sql = "DELETE FROM machines WHERE MachineID = ?";
   mysql.query(sql, [machineID], (err, results) => {
@@ -23,9 +20,6 @@ const handleDeleteMachine = (req, res) => {
 
 const handleDeleteProcess = (req, res) => {
   const processID = req.params.ProcessID;
-  if (!/^[1-9]\d*$/.test(processID)) {
-    return res.status(400).json({ error: "Invalid ProcessID format" });
-  }
 
   const sql = "DELETE FROM processes WHERE ProcessID = ?";
   mysql.query(sql, [processID], (err, results) => {
@@ -62,9 +56,6 @@ const handleDeleteApplication = (req, res) => {
 
 const handleDeletePassword = (req, res) => {
   const passwordID = req.params.PasswordID;
-  if (!/^[1-9]\d*$/.test(passwordID)) {
-    return res.status(400).json({ error: "Invalid PasswordID format" });
-  }
 
   const sql = "DELETE FROM passwords WHERE PasswordID = ?";
   mysql.query(sql, [passwordID], (err, results) => {
