@@ -4,6 +4,7 @@ const tableRouter = require("./Routes/tableRoutes");
 const postRoutes = require("./Routes/postRoutes");
 const expiredRoutes = require("./Routes/expiredPasswordRoute");
 const deleteRoutes = require("./Routes/deleteRoutes");
+const updateRoutes = require("./Routes/updateRoutes");
 
 const app = express();
 
@@ -22,3 +23,5 @@ app.use("/post/", postRoutes);
 app.use("/expired/", expiredRoutes);
 
 app.use("/delete/", deleteRoutes);
+
+app.use("/update/", updateRoutes);
