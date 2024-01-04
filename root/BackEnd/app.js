@@ -3,6 +3,7 @@ const express = require("express");
 const tableRouter = require("./Routes/tableRoutes");
 const postRoutes = require("./Routes/postRoutes");
 const expiredRoutes = require("./Routes/expiredPasswordRoute");
+const deleteRoutes = require("./Routes/deleteRoutes");
 
 const app = express();
 
@@ -12,8 +13,6 @@ app.get("/", (req, res) => {
   res.send("test");
 });
 
-console.log(new Date().toISOString().substr(0, 10));
-
 app.use(express.json());
 
 app.use("/table/", tableRouter);
@@ -21,3 +20,5 @@ app.use("/table/", tableRouter);
 app.use("/post/", postRoutes);
 
 app.use("/expired/", expiredRoutes);
+
+app.use("/delete/", deleteRoutes);
