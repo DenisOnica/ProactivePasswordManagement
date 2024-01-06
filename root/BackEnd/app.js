@@ -10,6 +10,15 @@ const app = express();
 
 app.listen(3000);
 
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("test");
 });
